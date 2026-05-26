@@ -107,12 +107,3 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
 }
 
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
-
-if not User.objects.filter(phone="+380962652626").exists():
-    User.objects.create_superuser(
-        phone="+380962652626",
-        password="12345678"
-    )
