@@ -7,8 +7,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN python manage.py migrate && \
-python manage.py shell -c "from django.contrib.auth import get_user_model; User=get_user_model(); User.objects.filter(phone='+380962652626').exists() or User.objects.create_superuser(phone='+380962652626', password='12345678')"
+RUN python manage.py migrate
 
 EXPOSE 8000
 
