@@ -1,7 +1,3 @@
-"""
-Django settings for config project.
-"""
-
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,9 +25,6 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
 }
 
 MIDDLEWARE = [
@@ -70,21 +63,6 @@ DATABASES = {
     }
 }
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -103,6 +81,4 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'Students Project API',
     'DESCRIPTION': 'Документація для нашого навчального проєкту',
     'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
 }
-
