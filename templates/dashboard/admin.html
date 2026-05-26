@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border border-primary">
+    <h1 class="display-6 fw-bold text-primary">🏛️ Панель Адміністратора</h1>
+    <p class="fs-5 text-muted">Повний контроль над філіями, предметами, студентами та групами центру.</p>
+</div>
+<div class="row g-4">
+    <div class="col-md-3"><div class="card p-3 text-center shadow-sm"><h5>📍 Філії</h5><a href="{% url 'branch_list' %}" class="btn btn-primary btn-sm mt-2">Перейти</a></div></div>
+    <div class="col-md-3"><div class="card p-3 text-center shadow-sm"><h5>📚 Предмети</h5><a href="{% url 'subject_list' %}" class="btn btn-primary btn-sm mt-2">Перейти</a></div></div>
+    <div class="col-md-3"><div class="card p-3 text-center shadow-sm"><h5>👥 Групи</h5><a href="{% url 'group_list' %}" class="btn btn-primary btn-sm mt-2">Перейти</a></div></div>
+    <div class="col-md-3"><div class="card p-3 text-center shadow-sm"><h5>👨‍🎓 Студенти</h5><a href="{% url 'student_list' %}" class="btn btn-primary btn-sm mt-2">Перейти</a></div></div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white"><h4>👨‍🎓 База студентів та батьків (ТЗ 4.4)</h4></div>
+    <table class="table m-0">
+        <thead><tr><th>ПІБ Студента</th><th>Телефон</th><th>Філія</th><th>ПІБ Опікуна (ТЗ)</th><th>Зв'язок</th></tr></thead>
+        <tbody>
+            {% for st in students %}
+            <tr><td><strong>{{ st.first_name }} {{ st.last_name }}</strong></td><td>{{ st.phone }}</td><td>{{ st.branch.name }}</td><td>{{ st.parent_name|default:"—" }} ({{ st.parent_phone|default:"—" }})</td><td>{{ st.parent_relationship|default:"—" }}</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white"><h4>📚 Навчальні предмети (ТЗ 4.3)</h4></div>
+    <table class="table m-0">
+        <thead><tr><th>Назва предмета</th><th>Філія (Унікально в межах філії)</th><th>Статус</th></tr></thead>
+        <tbody>
+            {% for s in subjects %}
+            <tr><td><strong>{{ s.name }}</strong></td><td><span class="badge bg-primary">{{ s.branch.name }}</span></td><td><span class="badge bg-secondary">{{ s.status }}</span></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

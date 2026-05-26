@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white"><h4>👥 Список груп центрів</h4></div>
+    <table class="table m-0">
+        <thead><tr><th>Група</th><th>Предмет</th><th>Вчитель (Логін/Телефон)</th><th>Філія</th></tr></thead>
+        <tbody>
+            {% for g in groups %}
+            <tr><td><strong>{{ g.name }}</strong></td><td>{{ g.subject.name }}</td><td>{{ g.teacher.phone }}</td><td><span class="badge bg-info text-dark">{{ g.branch.name }}</span></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

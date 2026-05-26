@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-5 mb-4 bg-dark text-white rounded-3 shadow">
+    <h1 class="display-6 fw-bold">👨‍🏫 Панель Викладача</h1>
+    <p class="fs-5 text-secondary">Обмежений доступ за ТЗ: перегляд ваших груп, розкладу та відмітка журналів.</p>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4"><div class="card p-3 text-center shadow-sm border-primary"><h5>📅 Мої групи</h5><a href="{% url 'group_list' %}" class="btn btn-outline-primary btn-sm mt-2">Відкрити</a></div></div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-content-between align-items-center mb-4">
+    <div>
+        <h1 class="fw-bold">Дашборд 🎓</h1>
+        <p class="lead">Роль в системі: <strong class="text-primary">{{ user.get_role_display }}</strong></p>
+    </div>
+</div>
+
+{% if user.role == 'ADMIN' %}
+<div class="row g-3 mt-2">
+    <div class="col-md-3">
+        <a href="{% url 'branch_list' %}" class="card text-decoration-none text-dark h-100 shadow-sm border-start border-primary border-3">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">📍 Філії</h5>
+                <p class="card-text text-muted small">Перегляд, контроль та перевірка філій центру.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="{% url 'subject_list' %}" class="card text-decoration-none text-dark h-100 shadow-sm border-start border-success border-3">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">📚 Предмети</h5>
+                <p class="card-text text-muted small">Керування навчальними дисциплінами філій (ТЗ 4.3).</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="{% url 'student_list' %}" class="card text-decoration-none text-dark h-100 shadow-sm border-start border-info border-3">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">👨‍🎓 Учні</h5>
+                <p class="card-text text-muted small">Перегляд студентів та обов'язкових контактів батьків (ТЗ 4.4).</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="{% url 'group_list' %}" class="card text-decoration-none text-dark h-100 shadow-sm border-start border-warning border-3">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">👥 Групи</h5>
+                <p class="card-text text-muted small">Управління академічними групами центрів навчання.</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% elif user.role == 'TEACHER' %}
+<div class="row g-3 mt-2 justify-content-center">
+    <div class="col-md-4">
+        <a href="{% url 'group_list' %}" class="card text-decoration-none text-dark h-100 shadow-sm border-start border-warning border-3">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold text-warning">📅 Мій розклад та групи</h5>
+                <p class="card-text text-muted small">Перегляд ваших активних занять та відмітка журналів відвідуваності.</p>
+            </div>
+        </a>
+    </div>
+    
+    <div class="col-md-4">
+        <a href="{% url 'subject_list' %}" class="card text-decoration-none text-dark h-100 shadow-sm border-start border-success border-3">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold text-success">📚 Навчальні предмети</h5>
+                <p class="card-text text-muted small">Перегляд списку дисциплін, які ви викладаєте.</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
